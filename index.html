@@ -983,10 +983,9 @@ body{
  const start=document.getElementById('startStory'), opening=document.getElementById('opening'), audio=document.getElementById('bgm'), toggle=document.getElementById('musicToggle'), volume=document.getElementById('musicVolume');
  let enabled=true;
  audio.volume=Number(volume.value)/100;
- const play=()=>{if(enabled) audio.play().catch(()=>{toggle.textContent='♫ 点击播放';});};
+ const play=()=>{if(enabled) audio.play().catch(()=>{});};
  start.addEventListener('click',()=>{opening.hidden=true;opening.style.display='none';play();});
  toggle.addEventListener('click',()=>{
-   if(enabled && audio.paused){play();return;}
    enabled=!enabled;toggle.setAttribute('aria-pressed',String(enabled));
    if(enabled)play();else audio.pause();
    toggle.textContent=enabled?'♫ 音乐：开':'♫ 音乐：关';
